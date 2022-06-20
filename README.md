@@ -13,10 +13,11 @@ Output:<br/>
 
 Keys are assigned to respective skills to ease user inputs <br/>
 
-Sequence matters! Most importantly the first skill, input key with space in between<br/>
+Sequence matters! Most importantly the first skill<br/>
 In a case this is your core: Final Blow, Beyond Blade, Smash Swing <br/>
 ![image](https://user-images.githubusercontent.com/51332449/174590704-42b34417-2849-4c75-9a02-be0b2bf48d9f.png)
 
+Input keys with space in between
 Input: <br/> 
 ![image](https://user-images.githubusercontent.com/51332449/174592399-f3aebfaf-cb68-42a9-99bf-f41fe00ed268.png)
 
