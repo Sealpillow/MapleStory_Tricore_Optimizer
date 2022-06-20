@@ -72,7 +72,7 @@ def perfectcombi(nodeList, setList, countList, numCore, numNode):
 
 
 while inplay:
-    print("Welcome to TriCore Optimiser")
+    print("Welcome to TriCore Optimizer")
     while userjob not in job:
         userjob = input("Job: ").lower()
     print("Key: Skill")
