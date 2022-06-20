@@ -1,5 +1,5 @@
 # MapleStory_Tricore_Optimizer
-This program helps to optimize your 5th job Tricore assuming that 4 nodes and 6 skills are used.
+This program uses back tracking method to help optimize your 5th job Tricore assuming that 4 nodes and 6 skills are used.
 
 ## trical.py
 
