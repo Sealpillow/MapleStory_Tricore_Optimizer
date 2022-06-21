@@ -1,8 +1,10 @@
 # MapleStory_Tricore_Optimizer
 ![image](https://user-images.githubusercontent.com/51332449/174607290-3701f126-162c-484a-b8f4-b2feac1c94f3.png)<br/>
 
-This program uses back tracking method to help optimize your 5th job Tricore assuming that 4 nodes and 6 skills are used.
+This program uses back tracking method to help optimize your 5th job Tricore assuming that 4 nodes and 6 skills are used.<br/>
 
+Class available:<br/>
+Aran, Evan, Mercedes, Phantom, Darkknight, Hero, Bishop, Icelightning, Nightlord, Cannonmaster, Viper, Adele <br/>
 ## trical.py
 
 Input: <br/>
