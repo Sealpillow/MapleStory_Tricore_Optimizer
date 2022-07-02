@@ -1,12 +1,15 @@
 from math import *
-from jobSkillList import job
+from classSkillList import classes
 
-jobName=[i for i in job.keys()]
+jobName=[i for i in classes.keys()]
 jobtitle=[i.title() for i in jobName]
 skill = []
-for name in jobName:
-    skill.append([str(j) for j in job[name].values()])
 
+for name in jobName:
+    skill.append([str(j) for j in classes[name].values()])
+
+for i in range(len(skill)):
+    print(jobtitle[i], end =', ')  # print job name
 
 for i in range(len(skill)):
     n = 0
