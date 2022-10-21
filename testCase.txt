@@ -1,0 +1,33 @@
+bb fa fb
+bb md fb
+bb ss md
+md ht fb
+md fa ht
+md fa bb
+fb bb ss
+fb fa md
+fb ht md
+fa bb ss
+fa md bb
+fa ht fb
+
+
+bb ss md
+md fa ht
+fb bb ss
+fa ht fb
+
+
+
+
+Node: md ht fb
+Node: md fa bb
+Node: fa md bb
+Node: fa ht fb
+Node: bb md fb
+Node: md fa ht
+Node: fa ht fb
+Node: fb bb ss
+Node: bb md fb
+Node: bb ss md
+Node: end
