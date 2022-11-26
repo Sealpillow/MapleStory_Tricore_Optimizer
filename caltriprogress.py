@@ -1,5 +1,7 @@
 import sys
 import os
+from time import sleep
+
 from classSkillList import classes
 
 
@@ -14,6 +16,7 @@ def found(setList, countList):
     for item in countList:
         if countList[item] == 2:
             count += 1
+    printprogress(count, goal, skillList)
     clearCount(countList)
     if count == goal:
         return True
@@ -43,6 +46,15 @@ def isSafe(setList, countList):
     clearCount(countList)
     return True
 
+def printprogress(current,total,skillList):
+    os.system('cls')
+    print("Total number of unique skills: " + str(len(skillList)))
+    if len(skillList) > 0:
+        print(*skillList, sep=', ')
+    percent = 100 * (current / float(total))
+    print("Skill Found: |" + "█" * int(percent/2) + " " * int((100 - percent)/2) + "|", end="")  # '█' - hold alt and press 219 on numpad: /2 is used to reduce size
+    print(str(current) + "/" + str(total))
+    sleep(0.1)
 
 def clearCount(countList):  # everytime after checking num of skill in coreList, it is called to reset to 0
     for key in countList:  # key set all key value to 0
