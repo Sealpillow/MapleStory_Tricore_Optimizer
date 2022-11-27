@@ -3,54 +3,47 @@ import os
 from classSkillList import classes
 
 
-def found(setList, countList):
+def found(skillList, setList):
     count = 0
+    countList = returnCountList(skillList, setList)  # get countList of skillSet
     goal = len(countList)
-    # count number of skill in the setList
-    for i in range(len(setList)):  # number of core in the list
-        for j in range(3):  # each core 3 skills
-            countList[setList[i][j]] += 1
     # check if all the skills are 2 which is optimal
     for item in countList:
         if countList[item] == 2:
             count += 1
-    clearCount(countList)
     if count == goal:
         return True
     else:
         return False
 
 
-def isSafe(setList, countList):
-
+def isSafe(setList):
     num = len(setList)
     # the first skill must not have repeat in the setlist
     for a in range(num):
         for b in range(a+1, num):
             if setList[a][0] == setList[b][0]:  # if repeat -> False
                 return False
-
-    # count number of skill in the setList
-    for i in range(num):  # number of core in the list
-        for j in range(3):  # each core 3 skills
-            countList[setList[i][j]] += 1
-
+    countList = returnCountList(skillList, setList)
     # check if all the skills' count exceed optimal count -> countList[item] > 2 -> False
     for item in countList:
         if countList[item] > 2:
-            clearCount(countList)
             return False
-    clearCount(countList)
     return True
 
 
-def clearCount(countList):  # everytime after checking num of skill in coreList, it is called to reset to 0
-    for key in countList:  # key set all key value to 0
-        countList[key] = 0
+def returnCountList(skillList, setList):  # to count the number skill in setList
+    countList = {}  # dictionary -> key : value -> skill : count
+    for item in skillList:  # to define key to value in dictionary
+        countList[item] = 0
+    for i in range(len(setList)):  # number of core in the list
+        for j in range(3):  # each core 3 skills
+            countList[setList[i][j]] += 1
+    return countList
 
 
-def perfectcombi(nodeList, setList, countList, numCore, numNode):
-    if found(setList, countList) and numCore == 4:  # assume user will use 4 core slots 6 unique skills
+def perfectcombi(nodeList, setList, skillList, numCore, numNode):
+    if found(skillList, setList) and numCore == 4:  # assume user will use 4 core slots 6 unique skills
         print("Perfect Tri-core:")
         for i in range(len(setList)):
             print("Core " + str(i+1) + ": ", end="")
@@ -59,9 +52,9 @@ def perfectcombi(nodeList, setList, countList, numCore, numNode):
             print()
         return True
     for x in range(numNode):   # cycle through every node in nodelist
-        if isSafe(setList, countList):
+        if isSafe(setList):
             setList.append(nodeList[x])  # append node into setList
-            if perfectcombi(nodeList, setList, countList, numCore+1, numNode):
+            if perfectcombi(nodeList, setList, skillList, numCore+1, numNode):
                 return True
             del setList[-1]  # remove node from setList
     return False
@@ -70,7 +63,6 @@ def perfectcombi(nodeList, setList, countList, numCore, numNode):
 nodeList = []  # contain all the node skill inputs
 skillList = []  # contain unique skills from node
 setList = []  # 2d matrix contain perfect tricore combination
-countList = {}  # to count num of skill in the setList -> define key to value in dictionary
 finalList = []
 userclass = ""
 inplay = True
@@ -108,9 +100,7 @@ while inplay:
     numNode = len(nodeList)  # number of input nodes from user
     numSkill = len(skillList)  # number of unique skills
     numCore = 0  # initialise num core to 0 as start
-    for item in skillList:  # to define key to value in dictionary
-        countList[item] = 0
-    if not perfectcombi(nodeList, setList, countList, numCore, numNode):
+    if not perfectcombi(nodeList, setList, skillList, numCore, numNode):
         print("No Perfect Tricore found")
     if input("Try Again? y/n:") != "y":
         inplay = False
